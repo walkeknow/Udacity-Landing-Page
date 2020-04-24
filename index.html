@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Manipulating the DOM</title>
+  <!-- Load Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">
+  <!-- Load Styles -->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- HTML Follows BEM naming conventions 
+  IDs are only used for sections to connect menu achors to sections -->
+  <header class="page__header">
+    <nav class="navbar__menu">
+      <!-- Navigation starts as empty UL that will be populated with JS -->
+      <ul id="navbar__list">
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <header class="main__hero">
+      <h1>Travel</h1>
+    </header>
+    <!-- Each Section has an ID (used for the anchor) and 
+    a data attribute that will populate the li node.
+    Adding more sections will automatically populate nav.
+    The first section is set to active class by default -->
+    <section id="section1" data-nav="Bhutan" class="active-class">
+      <div class="landing__container">
+        <h2>Bhutan</h2>
+        <p>
+          A dozen nations vie for the title of real-life Shangri-La, but Bhutan’s claim has more clout than most. This
+          tiny piece of Himalayan paradise operates a strict ‘high-value, low-impact’ tourism policy, compelling
+          travellers to pay a high daily fee just to set foot in its pine-scented, monastery-crowned hills. The pay-off
+          for visitors is a chance to walk along mountain trails unsullied by litter, in the company of people whose
+          Buddhist beliefs put them uniquely in tune with their environment. Bhutan punches well above its weight when
+          it
+          comes to sustainability. It is already the world’s only carbon-negative country, and the kingdom is set to
+          become the first fully organic nation by 2020, so it’s only going to get more beautiful. And with the daily
+          fee,
+          it won’t be getting any more crowded.
+        </p>
+      </div>
+    </section>
+    <section id="section2" data-nav="England">
+      <div class="landing__container">
+        <h2>England</h2>
+        <p>Once the country’s first line of defence against invaders, the English coastline these days is a peaceful
+          place where locals and visitors can enjoy more tranquil pursuits. Taking a bracing walk on a windswept pier,
+          eating delicious fish and chips, searching for marine life in rockpools, finding fossils in ancient cliffs,
+          building sandcastles and dolphin-spotting on picturesque beaches are just some of the activities offered by
+          the English seaside. In 2020, indulging in these activities and more will be a whole lot easier as new
+          sections of the England Coast Path continue to open. Once complete, at almost 3000 miles, the path will be the
+          longest continuous trail of its kind in the world, granting access to the country’s entire coastline for the
+          first time.</p>
+      </div>
+    </section>
+    <section id="section3" data-nav="North Macedonia">
+      <div class="landing__container">
+        <h2>3. North Macedonia</h2>
+        <p>‘Best of’ travel lists brim with anniversaries and airport openings. Rare is the opportunity to celebrate the
+          rebranding of a country. Such is the case for North Macedonia – a place most known simply as Macedonia – which
+          claimed a fresh moniker after decades of political debate with bordering Greece. The agreement, signed in
+          2018, provided a feel-good moment of neighbourly love and a revamped international image for the tiny nation
+          in the heart of the Balkans. It’s already renowned for gastronomy, ancient tradition and nature, but culture
+          junkies and adventurers will find new excuses to visit in 2020 with the addition of flight routes to
+          Unesco-protected Lake Ohrid and the recently launched High Scardus Trail, a 495km trek along the region’s most
+          dramatic peaks.</p>
+      </div>
+    </section>
+    <section id="section4" data-nav="Aruba">
+      <div class="landing__container">
+        <h2>Aruba</h2>
+        <p>In Aruba’s south, the cultural hub of San Nicolas, known as Sunrise City, is relishing a colourful and
+          creative revival, with international and local artists adorning street walls and pop-up carnival experiences
+          extending the happy vibes beyond the annual festivities. Equally important and worth celebrating are the
+          country’s ambitious sustainability efforts. Aruba has offered the island to be a testing hub for other
+          countries’ renewable energy solutions and is working to implement a ban on all single-use plastics and
+          reef-destroying sunscreens in 2020. With a flurry of new home-sharing accommodation and experiences on offer,
+          an authentic, more affordable, and sustainable Aruba awaits among its palm-fringed and pristine beaches.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="page__footer">
+    <p>© Kewal Shah</p>
+  </footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
