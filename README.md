@@ -2,9 +2,9 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Features](#Features)
 
-## Instructions
+## Features
 
 The following features have been added to the landing page:
 
