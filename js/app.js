@@ -59,7 +59,8 @@ navbarList.appendChild(section_fragment);
 
 // re-calculate values on window resize
 window.addEventListener('resize', function () {
-    navbar_height = document.querySelectorAll('.page__header')[0].offsetHeight;
+    header_height = document.querySelectorAll('.page__header')[0].offsetHeight;
+
     for (const section of sections) {
         const section_id = section.id;
         const top = section.offsetTop;
@@ -71,10 +72,16 @@ window.addEventListener('resize', function () {
 // Add class 'active' to section when near top of viewport
 let last_known_scroll_position = 0;
 let ticking = false;
-let navbar_height = document.querySelectorAll('.page__header')[0].offsetHeight;
+const header = document.querySelectorAll('.page__header')[0];
+let header_height = header.offsetHeight;
 
 function doSomething(scroll_pos) {
-    const relative_scroll_position = scroll_pos + navbar_height;
+
+    // Show header when scrolling
+    header.classList.remove('navbar__menu__hide');
+
+    // Finding section to focus on scrolling
+    const relative_scroll_position = scroll_pos + header_height;
     let min_difference = Number.MAX_SAFE_INTEGER;
     let section_to_focus = null;
 
@@ -82,7 +89,7 @@ function doSomething(scroll_pos) {
         const section = document.getElementById(key);
         section.classList.remove('active-class');
 
-        // finding the section that is closest to the scroll bar
+        // Finding the section that is closest to the scroll bar
         const difference = Math.abs(value - relative_scroll_position);
 
         if (difference < min_difference) {
@@ -97,8 +104,26 @@ function doSomething(scroll_pos) {
     }
 }
 
+function hideHeader(isScrolling, scroll_pos) {
+
+    // Show header when scrolled to top
+    if (scroll_pos === 0) {
+        console.log(scroll_pos);
+        header.classList.remove('navbar__menu__hide');
+        return;
+    }
+
+    // Hide header when not scrolling
+    window.clearTimeout(isScrolling);
+    isScrolling = setTimeout(function hideNavBar() {
+        header.classList.add('navbar__menu__hide');
+    })
+}
+
+let isScrolling
 window.addEventListener('scroll', function (e) {
     last_known_scroll_position = window.scrollY;
+    hideHeader(isScrolling, last_known_scroll_position);
 
     if (!ticking) {
         window.requestAnimationFrame(function () {
@@ -111,13 +136,16 @@ window.addEventListener('scroll', function (e) {
 
 // Scroll to anchor ID using scrollTO event
 const navbar = document.getElementById('navbar__list');
+
 for (const navbar_item of navbar.children) {
     navbar_item.addEventListener('click', function (event) {
         const section_id = navbar_item.dataset.id;
+
         for (const [key, value] of Object.entries(section_top_distances)) {
+
             if (section_id === key) {
                 window.scrollTo({
-                    top: value - navbar_height,
+                    top: value - header_height,
                     behavior: 'smooth',
                 });
             }
