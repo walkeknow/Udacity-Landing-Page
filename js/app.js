@@ -13,25 +13,6 @@
  * 
 */
 
-/**
- * Define Global Variables
- * 
-*/
-
-
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
-
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
 
 // build the nav and store Top values of each section
 const sections = document.querySelectorAll('section')
@@ -99,6 +80,7 @@ function doSomething(scroll_pos) {
     }
     const active_section = document.getElementById(section_to_focus);
 
+    // Highlighting the section that is currently being viewed
     if (!active_section.classList.contains('active-class')) {
         active_section.classList.add('active-class');
     }
@@ -152,18 +134,3 @@ for (const navbar_item of navbar.children) {
         }
     })
 }
-
-
-/**
- * End Main Functions
- * Begin Events
- *
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
-
