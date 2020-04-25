@@ -38,7 +38,7 @@ for (const section of sections) {
 const navbarList = document.querySelector('#navbar__list');
 navbarList.appendChild(section_fragment);
 
-// re-calculate values on window resize
+// Re-calculate values on window resize
 window.addEventListener('resize', function () {
     header_height = document.querySelectorAll('.page__header')[0].offsetHeight;
 
@@ -86,7 +86,7 @@ function doSomething(scroll_pos) {
     }
 }
 
-function hideHeader(isScrolling, scroll_pos) {
+function hideHeader(scroll_pos) {
 
     // Show header when scrolled to top
     if (scroll_pos === 0) {
@@ -96,16 +96,14 @@ function hideHeader(isScrolling, scroll_pos) {
     }
 
     // Hide header when not scrolling
-    window.clearTimeout(isScrolling);
-    isScrolling = setTimeout(function hideNavBar() {
+    setTimeout(function hideNavBar() {
         header.classList.add('navbar__menu__hide');
-    })
+    }, 0)
 }
 
-let isScrolling
 window.addEventListener('scroll', function (e) {
     last_known_scroll_position = window.scrollY;
-    hideHeader(isScrolling, last_known_scroll_position);
+    hideHeader(last_known_scroll_position);
 
     if (!ticking) {
         window.requestAnimationFrame(function () {
